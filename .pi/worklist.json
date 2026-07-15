@@ -16,6 +16,14 @@
 			"status": "open",
 			"createdAt": "2026-07-15T13:43:41.179Z",
 			"updatedAt": "2026-07-15T13:43:41.179Z"
+		},
+		{
+			"id": "goal-mrm6isu9-8fd7c4cc",
+			"title": "Benchmark pi-minimal-subagents against cut-down pi-subagents",
+			"description": "Use /Users/max/pi-minimal-subagents as the candidate and the restored three-agent npm:pi-subagents configuration as the baseline. Run matched scout, reviewer/web, and worker tasks with the same models and repository; compare tool-schema and prompt overhead, latency, tokens/cost, output quality, cancellation, concurrency, and write safety. Record reproducible commands and results before deciding whether to switch user settings or publish 0.1.0.",
+			"status": "open",
+			"createdAt": "2026-07-15T14:32:23.937Z",
+			"updatedAt": "2026-07-15T14:32:23.937Z"
 		}
 	]
 }
