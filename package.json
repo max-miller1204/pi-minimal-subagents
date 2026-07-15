@@ -1,0 +1,73 @@
+{
+	"name": "pi-minimal-subagents",
+	"version": "0.1.0",
+	"description": "A small, opinionated Pi extension for isolated scout, reviewer, and worker subagents.",
+	"type": "module",
+	"keywords": [
+		"pi-package",
+		"pi",
+		"extension",
+		"subagents",
+		"agents"
+	],
+	"author": "Max Miller",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/max-miller1204/pi-minimal-subagents.git"
+	},
+	"homepage": "https://github.com/max-miller1204/pi-minimal-subagents#readme",
+	"bugs": {
+		"url": "https://github.com/max-miller1204/pi-minimal-subagents/issues"
+	},
+	"files": [
+		"src",
+		"agents",
+		"AGENTS.md",
+		"README.md",
+		"LICENSE"
+	],
+	"main": "./src/extension.ts",
+	"pi": {
+		"extensions": [
+			"./src/extension.ts"
+		]
+	},
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"typecheck": "tsc --noEmit",
+		"format": "biome format --write .",
+		"format:check": "biome format .",
+		"lint": "biome lint --write .",
+		"lint:check": "biome lint .",
+		"check": "npm run typecheck && npm run format:check && npm run lint:check && npm run test",
+		"pack:check": "npm pack --dry-run",
+		"verify": "npm run check && npm run pack:check",
+		"prepublishOnly": "npm run verify && npm audit --audit-level=high"
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-agent-core": "*",
+		"@earendil-works/pi-ai": "*",
+		"@earendil-works/pi-coding-agent": "*",
+		"@earendil-works/pi-tui": "*",
+		"typebox": "*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4",
+		"@earendil-works/pi-agent-core": "^0.80.6",
+		"@earendil-works/pi-ai": "^0.80.6",
+		"@earendil-works/pi-coding-agent": "^0.80.6",
+		"@earendil-works/pi-tui": "^0.80.6",
+		"@types/node": "^24.0.0",
+		"typebox": "^1.0.0",
+		"typescript": "^5.9.0",
+		"vitest": "^3.2.0"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"version": 1,
+	"goals": [
+		{
+			"id": "goal-mrm4s5ma-3c0eba7d",
+			"title": "Add resumable long-task subagent sessions",
+			"description": "Design and implement opt-in persistent or forked child sessions, explicit resume semantics, bounded retention, crash-safe cleanup, and tests for tasks that cannot fit comfortably in one ephemeral child run.",
+			"status": "open",
+			"createdAt": "2026-07-15T13:43:41.170Z",
+			"updatedAt": "2026-07-15T13:43:41.170Z"
+		},
+		{
+			"id": "goal-mrm4s5mj-8e955332",
+			"title": "Add advanced isolated orchestration only when justified",
+			"description": "After measuring real usage, evaluate background lifecycle/status, strictly allowlisted nested read-only delegation, and git-worktree isolation for parallel writers without expanding the default subagent tool surface.",
+			"status": "open",
+			"createdAt": "2026-07-15T13:43:41.179Z",
+			"updatedAt": "2026-07-15T13:43:41.179Z"
+		}
+	]
+}
