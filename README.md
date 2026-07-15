@@ -54,7 +54,7 @@ Try a local checkout without installing it:
 pi -e /Users/max/pi-minimal-subagents
 ```
 
-After the repository is published, install it from GitHub:
+Install the package from GitHub:
 
 ```sh
 pi install git:github.com/max-miller1204/pi-minimal-subagents
