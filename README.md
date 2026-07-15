@@ -171,6 +171,8 @@ In particular, persistent resumable sessions are planned for tasks that cannot f
 
 ## Development
 
+Development requires Node.js 22.19 or newer, matching the current Pi runtime.
+
 ```sh
 npm install
 npm run check
