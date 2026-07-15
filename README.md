@@ -1,5 +1,9 @@
 # pi-minimal-subagents
 
+[![npm version](https://img.shields.io/npm/v/pi-minimal-subagents.svg)](https://www.npmjs.com/package/pi-minimal-subagents)
+[![CI](https://github.com/max-miller1204/pi-minimal-subagents/actions/workflows/ci.yml/badge.svg)](https://github.com/max-miller1204/pi-minimal-subagents/actions/workflows/ci.yml)
+[![Pi package](https://img.shields.io/badge/Pi-package-8a76b5)](https://pi.dev/packages/pi-minimal-subagents)
+
 `pi-minimal-subagents` is a small, opinionated Pi extension for fresh, isolated subagents.
 It exposes one `subagent` tool and three roles: `scout`, `reviewer`, and `worker`.
 
@@ -48,19 +52,23 @@ For SDK-provided tools without a loadable source path, configure an explicit map
 
 ## Installation
 
-Try a local checkout without installing it:
+After the initial npm release, install the published package with:
 
 ```sh
-pi -e /Users/max/pi-minimal-subagents
+pi install npm:pi-minimal-subagents
 ```
 
-Install the package from GitHub:
+Until then, install the package from GitHub:
 
 ```sh
 pi install git:github.com/max-miller1204/pi-minimal-subagents
 ```
 
-The package is not published to npm yet.
+Try a local checkout without installing it:
+
+```sh
+pi -e /Users/max/pi-minimal-subagents
+```
 
 ## Configuration
 
@@ -188,6 +196,47 @@ pi --no-extensions \
   -e /Users/max/pi-minimal-subagents \
   -e ~/.pi/agent/npm/node_modules/pi-web-access
 ```
+
+## Publishing the initial npm release
+
+The npm package name `pi-minimal-subagents` is currently available.
+The package manifest already includes the `pi-package` keyword, public publish configuration, Pi extension entry point, explicit package files, and a `prepublishOnly` verification gate.
+
+Start from a clean, current `main` branch and authenticate with npm:
+
+```sh
+git switch main
+git pull --ff-only
+npm login --auth-type=web
+npm whoami
+```
+
+Install the locked dependencies and run every release check:
+
+```sh
+npm ci
+npm run verify
+npm audit --audit-level=high
+```
+
+Create the initial release tag, publish version `0.1.0`, and push the tag:
+
+```sh
+git tag v0.1.0
+npm publish --access public
+git push origin main --follow-tags
+```
+
+Verify npm, Pi installation, and the package gallery after publication:
+
+```sh
+npm view pi-minimal-subagents version
+pi install npm:pi-minimal-subagents
+```
+
+Each npm version is immutable.
+Bump the version before every later publication.
+If publication succeeds but a Git push fails, repair and retry only the push rather than publishing the same version again.
 
 ## License
 
